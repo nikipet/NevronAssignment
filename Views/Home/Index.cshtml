@@ -1,0 +1,31 @@
+﻿@using NevronTask.Models
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model InitialData;
+
+<div>
+    <h2>Numbers</h2>
+    <ul id="numberList">
+        @foreach (var number in Model.Numbers)
+        {
+            <li>@number</li>
+        }
+    </ul>
+    <p>Count: <span id="numberCount">@Model.Numbers.Count </span></p>
+    <p>
+        Sum: @if (Model.Sum > 0)
+        {
+            <span id="numberSum">@Model.Sum</span>
+        }
+        else
+        {
+            <span id="numberSum">Not summed</span>
+        }
+    </p>
+</div>
+
+<button id="clearNumbersButton">Clear Numbers</button>
+<button id="addNumberButton">Add Number</button>
+<button id="sumNumbersButton">Sum Numbers</button>
